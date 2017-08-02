@@ -4,4 +4,4 @@ import UIKit
 
 var str = "Hello, playground"
 
-//hello
+str.utf16.count
