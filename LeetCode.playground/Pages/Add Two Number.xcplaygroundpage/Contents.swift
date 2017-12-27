@@ -20,13 +20,29 @@ public class ListNode {
 }
 
 class Solution {
+    func next(_ l1: ListNode?, _ l2: ListNode?) -> Int?{
+        if let node1 = l1 {
+            if let node2 = l2 {
+                return node1.val + node2.val
+            } else {
+                return node1.val
+            }
+        } else {
+            if let node2 = l2 {
+                return node2.val
+            } else {
+                return nil
+            }
+        }
+    }
+    
     func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
-        var n1:ListNode? = l1,n2:ListNode? = l2
         
-        var value = n1!.val + n2!.val
+        let value = l1!.val + l2!.val
         
-        var result:ListNode = ListNode(n1!.val + n2!.val)
-        var cursor = result
+        let result = ListNode(value)
+        
+        var cursor: ListNode? = result
         var over = false
         
         if value >= 10 {
@@ -34,53 +50,47 @@ class Solution {
             over = true
         }
         
-        while let next1 = n1?.next {
-            guard let next2 = n2?.next else {
-                return nil
-            }
-
-            var value = next1.val + next2.val
-            if over {
-                value = value + 1
-                over = false
-            }
-            
+        var n1 = l1?.next
+        var n2 = l2?.next
+        
+        while let nv = next(n1, n2) {
+            let value = over ? nv + 1 : nv
             if value >= 10 {
-                cursor.next = ListNode(value - 10)
+                cursor?.next = ListNode(value - 10)
                 over = true
             } else {
-                cursor.next = ListNode(value)
+                cursor?.next = ListNode(value)
+                over = false
             }
-        
-            cursor = result.next!
-
-            n1 = next1
-            n2 = next2
+            n1 = n1?.next
+            n2 = n2?.next
+            cursor = cursor?.next
         }
         
         if over {
-            cursor.next = ListNode(1)
+            cursor?.next = ListNode(1)
         }
         
         return result
-        
     }
 }
 
-let node1 = ListNode(1)
-node1.next = ListNode(8)
-//node1.next?.next = ListNode(3)
+let node1 = ListNode(9)
+node1.next = ListNode(9)
+node1.next!.next = ListNode(9)
+node1.next!.next?.next = ListNode(9)
+node1.next!.next?.next?.next = ListNode(9)
 
-let node2 = ListNode(0)
-//node2.next = ListNode(6)
-//node2.next?.next = ListNode(4)
+let node2 = ListNode(1)
+node2.next = ListNode(6)
+node2.next!.next = ListNode(4)
 
 var solution = Solution().addTwoNumbers(node1, node2)
-
+//
 while solution != nil {
 
     print(solution!.val)
-    
+
     solution = solution?.next
 }
 
