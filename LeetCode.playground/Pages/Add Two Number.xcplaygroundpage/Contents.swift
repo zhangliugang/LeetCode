@@ -8,6 +8,8 @@
  */
 
 
+//: [Previous](@previous)
+
 import Foundation
 
 public class ListNode {

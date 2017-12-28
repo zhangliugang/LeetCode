@@ -12,6 +12,9 @@
  ---
  */
 
+
+//: [Previous](@previous)
+
 import Foundation
 
 class Solution {
