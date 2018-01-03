@@ -19,13 +19,14 @@ import Foundation
 
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        for i in 0...nums.count-1 {
-            for j in i+1...nums.count-1 {
-                if nums[i]+nums[j] == target {
-                    return [i,j]
-                    
-                }
+        var dict = Dictionary<Int, Int>()
+        for i in 0..<nums.count {
+            let v = nums[i]
+            if let value = dict[target - v] {
+                return [value, i]
             }
+            
+            dict[v] = i
         }
         return [0]
     }

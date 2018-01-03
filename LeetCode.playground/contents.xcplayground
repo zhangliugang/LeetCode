@@ -6,5 +6,6 @@
         <page name='Add Two Number'/>
         <page name='Longest Substring Without Repeating Characters'/>
         <page name='Median if Two Sorted Arrays'/>
+        <page name='Longest Palindromic Substring'/>
     </pages>
 </playground>
