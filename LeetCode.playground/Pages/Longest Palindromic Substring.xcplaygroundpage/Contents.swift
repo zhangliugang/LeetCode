@@ -35,6 +35,6 @@ class Solution {
 }
 
 Solution().longestPalindrome("asdfsdfwe")
-//: [Next](@next)
+
 
 //: [Next](@next)
