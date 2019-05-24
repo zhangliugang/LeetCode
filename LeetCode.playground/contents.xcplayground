@@ -9,5 +9,6 @@
         <page name='5. Longest Palindromic Substring'/>
         <page name='7. Reverse Integer '/>
         <page name='8. String to Integer (atoi)'/>
+        <page name='287. Find the Duplicate Number'/>
     </pages>
 </playground>
