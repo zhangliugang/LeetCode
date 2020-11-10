@@ -17,7 +17,6 @@ Example:
  */
 
 //: [Previous](@previous)
-
 import Foundation
 
 class Solution {
@@ -62,6 +61,7 @@ class Solution {
                     }
                 }
             }
+
         }
 
         return String(input[left...right])
@@ -69,6 +69,5 @@ class Solution {
 }
 
 Solution().longestPalindrome("asdfsdfwe")
-//: [Next](@next)
 
 //: [Next](@next)
